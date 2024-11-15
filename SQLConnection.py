@@ -3,21 +3,21 @@ import pyodbc
 pyodbc.drivers()
 
 conn = pyodbc.connect(
-    r'DRIVER={ODBC Driver 17 for SQL Server};'
-    r'SERVER=UON-RTLS01\SQLEXPRESS;'
+    r'DRIVER={xxxx};'
+    r'SERVER=xxxx;'
     r'DATABASE=Master;'
     r'TrustedServerCertificate=yes;'
-    r'UID=LocSystem;'
-    r'PWD=SQLConnection1234'
+    r'UID=xxxx;'
+    r'PWD=xxxxxx'
 )
 
 cursor = conn.cursor()
-cursor.execute("SELECT * FROM LocSystem.LocSystem.trackpos;")
+cursor.execute("SELECT * FROM ;")
 row = cursor.fetchone()
 print(row)
 cursor.close()
 
-df = pd.read_sql_query("SELECT xpos, ypos, zpos FROM LocSystem.LocSystem.trackpos;", conn)
+df = pd.read_sql_query("SELECT * FROM ;", conn)
 print(df.head())
 print(df)
 
